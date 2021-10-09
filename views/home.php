@@ -48,7 +48,6 @@
                     <div class="container" data-aos="fade-up">
 
                         <div class="section">
-                        <h2>About Us</h2>
                         <h3>Kopiku</h3>
                         </div>
 

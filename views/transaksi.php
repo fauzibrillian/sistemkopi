@@ -97,7 +97,7 @@ $db = new database();
               <input type="number"  id="text" name="barang_harga" class="form-control" placeholder="Masukan Harga Kopimu">
               <small id="text" class="form-text text-muted">Secangkir Kopi untuk ketenangan</small>
             </div>
-            <input class="btn btn-primary"  type="submit" value="Pesan">
+            <input class="btn btn-primary" href="respon.php" type="submit" value="Pesan">
             <div class= "btn">
                 <a id="back" class= "btn btn-primary" href="home.php">Back</a>
             </div>

@@ -34,19 +34,23 @@ if ($aksi == "hapus") {
         header("location:../views/users.php");
     }
 } elseif ($aksi == "create_transaksi") {
-    $query = "INSERT INTO transaksi (tgl_transaksi, barang_nama , barang_harga ) VALUES ( '" . $_POST[' '] . "',  '" . $_POST['barang_nama'] . "',  '" . $_POST['barang_harga'] . "')";
+    $query = "INSERT INTO transaksi ( barang_nama , barang_harga ) VALUES ( '" . $_POST['barang_nama'] . "',  '" . $_POST['barang_harga'] . "')";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
         header("location:../views/transaksi.php");
     }
-    // header("location:../views/login.php?pesan=gagal");
-
-
-
-
-    // if ($result) {
-    //     header("location:../views/register.php");
-    // }
+}elseif ($aksi == "hapus_transaksi") {
+    $query = "delete FROM transaksi where id =" . $_GET['id'] . "";
+    $result = mysqli_query($db->connect(), $query);
+    if ($result) {
+        header("location:../views/menu_transaksi_admin.php");
+    }
+} elseif ($aksi == "update_transaksi") {
+    $query = "update transaksi set barang_nama = '" . $_POST['barang_nama'] . "', barang_harga = '" . $_POST['barang_harga'] . "' where id =" . $_POST['id'] . "";
+    $result = mysqli_query($db->connect(), $query);
+    if ($result) {
+        header("location:../views/menu_transaksi_admin.php");
+    }
 } elseif ($aksi == "create_barang") {
     $query = "INSERT INTO barang (nama_barang, harga) VALUES ( '" . $_POST['nama_barang'] . "',  '" . $_POST['harga'] . "')";
     $result = mysqli_query($db->connect(), $query);

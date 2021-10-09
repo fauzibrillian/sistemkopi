@@ -73,7 +73,7 @@ $db = new database();
                                                 <td><?php echo $x['nama_barang']; ?></td>
                                                 <td><?php echo $x['harga']; ?></td>
                                                 <td>
-                                                <a class="btn btn-primary" href="update_barang.php?id=<?php echo $x['id']; ?>&aksi=edit">Edit</a>
+                                                <a class="btn btn-primary" href="update_menu_barang.php?id=<?php echo $x['id']; ?>&aksi=update_barang">Edit</a>
                                                 <a class="btn btn-danger" href="../controllers/Controller.php?id=<?php echo $x['id']; ?>&aksi=hapus_barang">Hapus</a>
                                                 </td>
                                             </tr>
@@ -85,7 +85,7 @@ $db = new database();
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>no ktp</th>
+                                            <th>Harga</th>
                                         </tr>
                                     </tfoot>
                                 </table>

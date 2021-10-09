@@ -32,12 +32,12 @@ $db = new database();
                 <title>Kopiku</title>
   </head>
   <body>
- 
+
             <nav class="navbar navbar-dark bg-dark">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <a class="navbar-brand" href="home.php">Kopiku</a>
+                        <a class="navbar-brand" href="#">Kopiku</a>
 
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -50,11 +50,27 @@ $db = new database();
                             </ul>
                         </div>
                     </nav>
-                <div class="section">
                     <br><br>
-                    <a button type="button" class="btn btn-dark" href="menu_barang_admin.php" role="button">Menu Barang</a>
-                    <a button type="button" class="btn btn-dark" href="menu_transaksi_admin.php" role="button">Menu Transaksi</a>
-                </div>
+                    <h2> Update Menu Transaksi </h2><br><br>
+                     <div class="container">
+                        <form action="../controllers/Controller.php?aksi=update_transaksi" method="post">
+                            <?php
+                            foreach ($db->edit_transaksi($_GET['id']) as $d) {
+                            ?>
+                                <div class="form-group">
+                                    <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+                                    <label for="exampleInputEmail1">Nama Barang</label>
+                                    <input type="text" name="barang_nama" class="form-control" id="barang_nama" value="<?php echo $d['barang_nama'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Harga</label>
+                                    <input type="text" name="barang_harga" class="form-control" id="harga" value="<?php echo $d['barang_harga'] ?>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <?php } ?>
+                        </form>
+                    </div>
+                    
                     <!-- Optional JavaScript -->
                     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
