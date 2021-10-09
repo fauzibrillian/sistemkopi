@@ -26,10 +26,10 @@ if($cek > 0){
 	$_SESSION['level'] = $hasil[0]['level'];
 	$_SESSION['status'] = "login";
 	if ($hasil[0]['level'] == 'admin') {
-		header("location:menu_penjual.php");
+		header("location:menu_admin.php");
 	}
 	if ($hasil[0]['level'] == 'owner') {
-		header("location:menu_pemilik.php");
+		header("location:menu_owner.php");
 	}
 }else{
 	header("location:login.php?pesan=gagal");

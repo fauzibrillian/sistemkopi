@@ -47,22 +47,22 @@ if ($aksi == "hapus") {
     // if ($result) {
     //     header("location:../views/register.php");
     // }
-} elseif ($aksi == "create_ticket") {
-    $query = "INSERT INTO ticket (jumlah, harga , hari) VALUES ( '" . $_POST['jumlah'] . "',  '" . $_POST['harga'] . "',  '" . $_POST['hari'] . "')";
+} elseif ($aksi == "create_barang") {
+    $query = "INSERT INTO barang (nama_barang, harga) VALUES ( '" . $_POST['nama_barang'] . "',  '" . $_POST['harga'] . "')";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
-        header("location:../views/ticket.php");
+        header("location:../views/menu_barang_admin.php");
     }
-} elseif ($aksi == "hapus_ticket") {
-    $query = "delete FROM ticket where id =" . $_GET['id'] . "";
+} elseif ($aksi == "hapus_barang") {
+    $query = "delete FROM barang where id =" . $_GET['id'] . "";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
-        header("location:../views/ticket.php");
+        header("location:../views/menu_barang_admin.php");
     }
-} elseif ($aksi == "update_ticket") {
-    $query = "update ticket set jumlah = '" . $_POST['jumlah'] . "', harga = '" . $_POST['harga'] . "', hari = '" . $_POST['hari'] . "' where id =" . $_POST['id'] . "";
+} elseif ($aksi == "update_barang") {
+    $query = "update barang set nama_barang = '" . $_POST['nama_barang'] . "', harga = '" . $_POST['harga'] . "' where id =" . $_POST['id'] . "";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
-        header("location:../views/ticket.php");
+        header("location:../views/menu_barang_admin.php");
     }
 }

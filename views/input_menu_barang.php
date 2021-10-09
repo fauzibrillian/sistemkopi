@@ -31,56 +31,41 @@ $db = new database();
             <link href="assets/css/style.css" rel="stylesheet">
                 <title>Kopiku</title>
   </head>
-<body>
-    
-<nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Kopiku</a>
+  <body>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.php">Login</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+            <nav class="navbar navbar-dark bg-dark">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Kopiku</a>
 
-      <div class="container">
-        <div class="d-flex justify-content-center">
-            <!-- cek pesan notifikasi -->
-            <?php
-            if (isset($_GET['pesan'])) {
-                if ($_GET['pesan'] == "gagal") {
-                    echo "Login gagal! username dan password salah!";
-                } else if ($_GET['pesan'] == "logout") {
-                    echo "Anda telah berhasil logout";
-                } else if ($_GET['pesan'] == "belum_login") {
-                    echo "Anda harus login untuk mengakses halaman admin";
-                }
-            }
-            ?>
-            <form  method="post" action="ceklogin.php">
-                <br><br>
-                <div class="row">
-                    <div class="col">
-                    <input type="text" name= "username"class="form-control" placeholder="Username">
-                    </div>
-                    <div class="col">
-                    <input type="password" name="password" class="form-control" placeholder="Password">
-                    </div>
-                            <button class="btn btn-primary" name="login" type="submit">Login</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
-    
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Login</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <br><br>
+                    <h2> Input Menu Barang </h2><br><br>
+                        <div class="container">
+                            <form action="../controllers/Controller.php?aksi=create_barang" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Barang</label>
+                                    <input type="text" name="nama_barang" class="form-control" id="nama_barang">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Harga</label>
+                                    <input type="text" name="harga" class="form-control" id="harga">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    
                     <!-- Optional JavaScript -->
                     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -100,5 +85,5 @@ $db = new database();
                 <!-- Template Main JS File -->
                 <script src="assets/js/main.js"></script>
 
-</body>
+    </body>
 </html>
