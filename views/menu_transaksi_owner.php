@@ -42,7 +42,7 @@ $db = new database();
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="login.php">Login</a>
@@ -50,15 +50,54 @@ $db = new database();
                             </ul>
                         </div>
                     </nav>
-                    
-                <div class="section">
                     <br><br>
-                    <a button type="button" class="btn btn-dark" href="menu_barang_admin.php" role="button">Menu Barang</a>
-                    <a button type="button" class="btn btn-dark" href="menu_transaksi_owner.php" role="button">Menu Transaksi</a>
-                    <a button type="button" class="btn btn-dark" href="menu_user_owner.php" role="button">Menu User</a>
-                </div>
-
-
+                    <h2> Menu Transaksi </h2><br><br>
+                        <div class="container">
+                            <div class="">
+                                <!-- <a class="btn btn-primary" href="input_menu_barang.php">Input Data</a> -->
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Tanggal Transaksi</th>
+                                            <th>Nama Barang</th>
+                                            <th>Harga</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($db->tampil_transaksi() as $x) {
+                                    ?>
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo $no++; ?></td>
+                                                <td><?php echo $x['tgl_transaksi']; ?></td>
+                                                <td><?php echo $x['barang_nama']; ?></td>
+                                                <td><?php echo $x['barang_harga']; ?></td>
+                                                <td><?php echo $x['username']; ?></td>
+                                                <td>
+                                                <a class="btn btn-primary" href="update_menu_transaksi.php?id=<?php echo $x['id']; ?>&aksi=update_transaksi">Edit</a>
+                                                <a class="btn btn-danger" href="../controllers/Controller.php?id=<?php echo $x['id']; ?>&aksi=hapus_transaksi">Hapus</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    <?php
+                                    }
+                                    ?>
+                                    <tfoot>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Tanggal Transaksi</th>
+                                            <th>Nama Barang</th>
+                                            <th>Harga</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    
                     <!-- Optional JavaScript -->
                     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

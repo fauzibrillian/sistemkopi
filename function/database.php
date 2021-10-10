@@ -124,5 +124,24 @@ class database
             return $hasil;
         }
     }
+    function tampil_data_transaksi()
+    {
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        $query = "SELECT user.username FROM user INNER JOIN transaksi ON transaksi.id = laporan.id;";
+        $result = mysqli_query($this->connect(), $query);
+        $chart_data = '';
+
+        // cek result
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $hasil[] = $row;
+            }
+            return $hasil;
+        }
+    }
 
 }
