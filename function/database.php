@@ -86,5 +86,43 @@ class database
             return $hasil;
         }
     }
+    function tampil_data_user()
+    {
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        $query = "SELECT * FROM user";
+        $result = mysqli_query($this->connect(), $query);
+        $chart_data = '';
+
+        // cek result
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $hasil[] = $row;
+            }
+            return $hasil;
+        }
+    }
+    function edit_user($id)
+    {
+        if (mysqli_connect_errno()) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
+
+        $query = "SELECT * FROM user where id = $id";
+        $result = mysqli_query($this->connect(), $query);
+        $chart_data = '';
+        // cek result
+        if ($result) {
+            while ($row = mysqli_fetch_array($result)) {
+                $hasil[] = $row;
+            }
+            // print_r($hasil);exit;
+            return $hasil;
+        }
+    }
 
 }

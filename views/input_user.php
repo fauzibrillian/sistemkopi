@@ -42,7 +42,7 @@ $db = new database();
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="login.php">Login</a>
@@ -50,16 +50,22 @@ $db = new database();
                             </ul>
                         </div>
                     </nav>
-                    
-                <div class="section">
                     <br><br>
-                    <a button type="button" class="btn btn-dark" href="menu_barang_admin.php" role="button">Menu Barang</a>
-                    <a button type="button" class="btn btn-dark" href="menu_transaksi_admin.php" role="button">Menu Transaksi</a>
-                    <a button type="button" class="btn btn-dark" href="menu_user_owner.php" role="button">Menu User</a>
-                    <a button type="button" class="btn btn-dark" href="menu_transaksi_admin.php" role="button">Laporan</a>
-                </div>
-
-
+                    <h2> Input User </h2><br><br>
+                        <div class="container">
+                            <form action="../controllers/Controller.php?aksi=create_barang" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Nama Barang</label>
+                                    <input type="text" name="nama_barang" class="form-control" id="nama_barang">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Harga</label>
+                                    <input type="text" name="harga" class="form-control" id="harga">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    
                     <!-- Optional JavaScript -->
                     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
                     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
