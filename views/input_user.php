@@ -53,14 +53,18 @@ $db = new database();
                     <br><br>
                     <h2> Input User </h2><br><br>
                         <div class="container">
-                            <form action="../controllers/Controller.php?aksi=create_barang" method="post">
+                            <form action="../controllers/Controller.php?aksi=create_user" method="post">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Nama Barang</label>
-                                    <input type="text" name="nama_barang" class="form-control" id="nama_barang">
+                                    <label for="exampleInputEmail1">Username</label>
+                                    <input type="text" name="username" class="form-control" id="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Harga</label>
-                                    <input type="text" name="harga" class="form-control" id="harga">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" name="password" class="form-control" id="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Level</label>
+                                    <input type="text" name="level" class="form-control" id="level">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

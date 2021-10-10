@@ -3,23 +3,23 @@ include '../function/database.php';
 $db = new database();
 
 $aksi = $_GET['aksi'];
-if ($aksi == "create_users") {
+if ($aksi == "create_user") {
     $query = "INSERT INTO user (username, password, level) VALUES ( '" . $_POST['username'] . "',  '" . $_POST['password'] . "',  '" . $_POST['level'] . "')";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
-        header("location:../views/users.php");
+        header("location:../views/menu_user_owner.php");
     }
 } elseif ($aksi == "hapus_user") {
     $query = "delete FROM user where id =" . $_GET['id'] . "";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
-        header("location:../views/users.php");
+        header("location:../views/menu_user_owner.php");
     }
 } elseif ($aksi == "update_user") {
     $query = "update user set username = '" . $_POST['username'] . "', password = '" . $_POST['password'] . "', level = '" . $_POST['level'] . "' where id =" . $_POST['id'] . "";
     $result = mysqli_query($db->connect(), $query);
     if ($result) {
-        header("location:../views/users.php");
+        header("location:../views/menu_user_owner.php");
     }
 } elseif ($aksi == "create_transaksi") {
     $query = "INSERT INTO transaksi ( barang_nama , barang_harga ) VALUES ( '" . $_POST['barang_nama'] . "',  '" . $_POST['barang_harga'] . "')";

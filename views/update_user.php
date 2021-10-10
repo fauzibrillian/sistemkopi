@@ -51,49 +51,29 @@ $db = new database();
                         </div>
                     </nav>
                     <br><br>
-                    <h2> Menu User </h2><br><br>
-                        <div class="container">
-                            <div class="">
-                                <a class="btn btn-primary" href="input_user.php">Input Data</a>
-                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Level</th>
-                                        </tr>
-                                    </thead>
-                                    <?php
-                                    $no = 1;
-                                    foreach ($db->tampil_data_user() as $x) {
-                                    ?>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $no++; ?></td>
-                                                <td><?php echo $x['username']; ?></td>
-                                                <td><?php echo $x['password']; ?></td>
-                                                <td><?php echo $x['level']; ?></td>
-                                                <td>
-                                                <a class="btn btn-primary" href="update_user.php?id=<?php echo $x['id']; ?>&aksi=update_user">Edit</a>
-                                                <a class="btn btn-danger" href="../controllers/Controller.php?id=<?php echo $x['id']; ?>&aksi=hapus_user">Hapus</a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    <?php
-                                    }
-                                    ?>
-                                    <tfoot>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Level</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                        </div>
+                    <h2> Update Menu Barang </h2><br><br>
+                     <div class="container">
+                        <form action="../controllers/Controller.php?aksi=update_user" method="post">
+                            <?php
+                            foreach ($db->edit_user($_GET['id']) as $d) {
+                            ?>
+                                <div class="form-group">
+                                    <input type="hidden" name="id" value="<?php echo $d['id'] ?>">
+                                    <label for="exampleInputEmail1">Username</label>
+                                    <input type="text" name="username" class="form-control" id="username" value="<?php echo $d['username'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" name="password" class="form-control" id="password" value="<?php echo $d['password'] ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Level</label>
+                                    <input type="text" name="level" class="form-control" id="level" value="<?php echo $d['level'] ?>">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <?php } ?>
+                        </form>
+                    </div>
                     
                     <!-- Optional JavaScript -->
                     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
